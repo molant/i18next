@@ -149,6 +149,10 @@ class Translator extends EventEmitter {
   }
 
   extendTranslation(res, key, options) {
+    if (this.options.disableInterpolation) {
+        return res;
+    }
+
     if (options.interpolation) this.interpolator.init(options);
 
     // interpolate
